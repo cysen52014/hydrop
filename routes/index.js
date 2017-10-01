@@ -9,9 +9,16 @@ router.get('/', (req, res) => {
     res.render('index.html', { title: '添加管理员', message: '' })
 })
 
-router.get('/backend', (req, res) => {
-    res.render('index.html', { title: '添加管理员', message: '' })
+
+
+router.get(/^\/(backend|user|cart|article).*/, (req, res) => {
+    res.render('index.html', { title: '后台', message: '' })
 })
+
+
+// router.get(/^(?!\/(backend|api).*)/, (req, res) => { 
+//     res.render('index.html', { title: '后台', message: '' })
+// })
 
 
 //backend api
@@ -53,11 +60,11 @@ router.post('/api/users/frontUsersLogin', users.frontUsersLogin);
 router.post('/api/users/captchas', users.captchas);
 
 
-// router.get('*', (req, res) => {
-//     res.json({
-//         code: -200,
-//         message: '没有找到该页面'
-//     })
-// })
+router.get('*', (req, res) => {
+    res.json({
+        code: -200,
+        message: '没有找到该页面'
+    })
+})
 
 module.exports = router;
