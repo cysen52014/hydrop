@@ -99,55 +99,50 @@ exports.uploadPicture = function (req, res) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     var form = new formidable.IncomingForm();  
     form.uploadDir='tmp';
-    console.log(form)
-    res.json({
-      succeed : false,
-      code : -200,
-      message : "上传失败"
-    })
-    // form.parse(req, function(err, fields, files) {  
+    
+    form.parse(req, function(err, fields, files) {  
 
         
-    //     if(err || !files.files){
-    //         res.json({
-    //           succeed : false,
-    //           code : -200,
-    //           message : "上传失败"
-    //         })
-    //         return; 
-    //     }
+        if(err || !files.files){
+            res.json({
+              succeed : false,
+              code : -200,
+              message : "上传失败"
+            })
+            return; 
+        }
 
-    //     if (files.files.size > 16*1024*1024){
-    //        res.json({
-    //           succeed : false,
-    //           code : -200,
-    //           message : "文件不要超过16Mb"
-    //        })
-    //        return 
-    //     }
+        if (files.files.size > 16*1024*1024){
+           res.json({
+              succeed : false,
+              code : -200,
+              message : "文件不要超过16Mb"
+           })
+           return 
+        }
  
-    //     var old_path = files.files.path; 
-    //     var name = uuid.v1();
-    //     var type =  files.files.type.replace(/image\//ig,'');
+        var old_path = files.files.path; 
+        var name = uuid.v1();
+        var type =  files.files.type.replace(/image\//ig,'');
 
-    //     switch(type){
-    //         case 'jpeg':
-    //           name = name+'.jpeg';
-    //           break;
-    //         case 'jpg':
-    //           name = name+'.jpg';
-    //           break;
-    //         case 'png':
-    //           name = name+'.png';
-    //           break;
-    //         case 'gif':
-    //           name = name+'.gif';
-    //           break;
-    //     }
+        switch(type){
+            case 'jpeg':
+              name = name+'.jpeg';
+              break;
+            case 'jpg':
+              name = name+'.jpg';
+              break;
+            case 'png':
+              name = name+'.png';
+              break;
+            case 'gif':
+              name = name+'.gif';
+              break;
+        }
 
-    //     var new_path = old_path;
+        var new_path = old_path;
 
-    //     clipImages(req,res,new_path,name,fields)
+        clipImages(req,res,new_path,name,fields)
 
         // mkdirs(new_path,0777,req,res,fields,function () {
         //     fs.rename(old_path,new_path+name, function(err) {  
