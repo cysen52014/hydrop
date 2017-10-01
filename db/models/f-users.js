@@ -11,7 +11,7 @@ var FUsersSchema = new Schema({
     timestamp: Number
 })
 
-var FUsers = mongoose.model('FUsers', FUsersSchema)
+var FUsers = mongoose.model('FUsers', FUsersSchema,'Fusers')
 Promise.promisifyAll(FUsers)
 Promise.promisifyAll(FUsers.prototype)
 
