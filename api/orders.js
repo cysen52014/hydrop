@@ -113,7 +113,7 @@ exports.getAllOrders = (req, res, next) => {
     }).catch(err => {
         res.json({
             code: -200,
-            message: ""
+            message: err
         })
     })
 }
