@@ -110,6 +110,11 @@ exports.getAllOrders = (req, res, next) => {
                 message: "没有订单信息"
             })
         }
+    }).catch(err => {
+        res.json({
+            code: -200,
+            message: ""
+        })
     })
 }
 

@@ -377,6 +377,11 @@ exports.inserAdsPicture = (req, res, next) => {
             data: r,
             message: "广告图创建成功"
         })
+    }).catch(err => {
+        res.json({
+            code: -200,
+            message: ""
+        })
     })
 }
 
@@ -395,6 +400,11 @@ exports.getAdsPictureList = (req, res, next) => {
                 message: ""
             })
         }
+    }).catch(err => {
+        res.json({
+            code: -200,
+            message: ""
+        })
     })
 }
 
