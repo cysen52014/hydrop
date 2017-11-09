@@ -53,6 +53,10 @@ router.post('/api/goods/getGoodByIdAsync', goods.getGoodByIdAsync);
 router.post('/api/goods/getByIdGroup', goods.getByIdGroup);
 router.post('/api/goods/addToCart', goods.addToCart);
 router.post('/api/goods/getCartId', goods.getCartId);
+router.post('/api/goods/delCartById', goods.delCartById);
+
+
+
 router.post('/api/goods/deletGoodTypeAsync', goods.deletGoodTypeAsync);
 router.post('/api/goods/inserAdsPicture', goods.inserAdsPicture);
 router.post('/api/goods/getAdsPictureList', goods.getAdsPictureList);
