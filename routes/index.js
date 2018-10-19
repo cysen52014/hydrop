@@ -27,7 +27,7 @@ router.get(/^\/(backend|user|cart|article).*/, (req, res) => {
 
 //backend api
 
-router.post('/api/users/admininsert', isAdmin, users.admininsert);
+router.post('/api/users/admininsert',users.admininsert);
 router.post('/api/users/adminLoginAsync', users.adminLoginAsync);
 
 router.post('/api/goods/insertGoodAsync', isAdmin, goods.insert);
