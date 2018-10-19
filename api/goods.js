@@ -102,7 +102,7 @@ exports.updata = (req, res, next) => {
 }
 
 exports.uploadPicture = function (req, res) {
-  res.header("Access-Control-Allow-Origin", "http://cys520.cn");
+  res.header("Access-Control-Allow-Origin", "http://www.cys520.cn");
   res.header("Access-Control-Allow-Credentials", true);
   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
